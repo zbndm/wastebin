@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% block head %}
+  <title>{% block title %}Wastebin{% endblock %}</title>
+  <meta name="description" content="Simple pastebin service on Deta." />
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="/static/favicon.ico" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/vs2015.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/static/style.css" />
+  {% endblock %}
+</head>
+
+<body>
+  <nav class="navbar w3-bar w3-card w3-top">
+    {% block navbar %}
+    <a href="/about" class="w3-bar-item w3-button">
+      <span class="icon"><i class="fa fa-trash"></i></span>
+      Wastebin
+    </a>
+    <a href="/docs" class="w3-bar-item w3-button">
+      <span class="icon"><i class="fa fa-code"></i></span>
+      API
+    </a>
+    <a href="https://github.com/LemonPi314/wastebin" class="w3-bar-item w3-button">
+      <span class="icon"><i class="fa fa-github"></i></span>
+      GitHub
+    </a>
+    <a href="/" class="w3-bar-item w3-button">
+      <span class="icon"><i class="fa fa-plus"></i></span>
+      New
+    </a>
+    {% endblock %}
+  </nav>
+
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  <footer>
+    {% block footer %}
+    <p>
+      Made with
+      <a href="https://python.org/">Python</a>
+      and a keyboard
+      <br />
+      Powered by
+      <a href="https://fastapi.tiangolo.com/">FastAPI</a>,
+      <a href="https://deta.sh/">Deta</a>,
+      and long sleepless nights
+    </p>
+    {% endblock %}
+  </footer>
+
+  {% block scripts %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script src="/static/base.js"></script>
+  {% endblock %}
+</body>
+
+</html>

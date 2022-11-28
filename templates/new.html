@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+{{ super() }}
+<div class="w3-right">
+  <button class="w3-bar-item w3-button" onclick="uploadFile();">
+    <span class="icon"><i class="fa fa-upload"></i></span>
+    Upload File
+  </button>
+  <div class="w3-dropdown-click">
+    <button class="w3-button" onclick="toggleElement('options-dropdown');">
+      <span class="icon"><i class="fa fa-cog"></i></span>
+      Options
+      <span class="icon"><i class="fa fa-caret-down"></i></span>
+    </button>
+    <div id="options-dropdown" class="dropdown-content w3-dropdown-content w3-bar-block w3-card" style="position: fixed;">
+      <input id="option-filename" type="text" class="w3-bar-item w3-input" placeholder="Filename">
+      <!-- <input id="option-id" type="text" class="w3-bar-item w3-input" placeholder="ID"> -->
+      <select id="option-hl-lang" class="w3-bar-item" onchange="updateInput();"></select>
+      <span class="w3-bar-item">
+        Delete after read
+        <span style="float: right;">
+          <input type="checkbox" id="option-ephemeral">
+        </span>
+      </span>
+      <details class="w3-bar-item">
+        <summary>
+          Expiration date
+          <span style="float: right;">
+            <input type="checkbox" id="option-expire">
+          </span>
+        </summary>
+        <input type="date" id="option-expire-at-date" class="w3-bar-item">
+        <input type="time" value="00:00" id="option-expire-at-time" class="w3-bar-item">
+      </details>
+    </div>
+  </div>
+  <a id="save-button" class="w3-bar-item w3-button" onclick="save();">
+    <span class="icon"><i class="fa fa-save"></i></span>
+    Save
+  </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<textarea id="hidden-input" placeholder="Paste or type some text..." spellcheck="false" wrap="off" autofocus></textarea>
+<pre id="highlighted-input" class="document"><code></code></pre>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="/static/new.js"></script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align: center;">
+  <h1 style="font-family: monospace;">404 - Not Found</h1>
+  <pre class="document" style="display: flex; justify-content: center;"><code></code></pre>
+  <img id="image" style="max-height: 600px; max-width: 600px; height: auto; width: auto;">
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+  fetch("/api/get/404.py")
+    .then((response) => { return response.json(); })
+    .then((data) => {
+      const code = document.getElementsByTagName("code")[0];
+      code.textContent = data.content;
+      code.classList.add("hljs", "language-python");
+      hljs.highlightElement(code);
+    });
+
+  fetch("https://api.waifu.pics/sfw/waifu")
+    .then((response) => { return response.json(); })
+    .then((data) => { document.getElementById("image").src = data.url; });
+</script>
+{% endblock %}

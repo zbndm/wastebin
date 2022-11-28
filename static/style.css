@@ -1,0 +1,78 @@
+:root {
+  color-scheme: dark;
+  color: #e0e0e0;
+  background-color: #1e1e1e;
+  font-family: Verdana, sans-serif;
+}
+
+footer {
+  padding: 10px;
+  color: #858585;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.icon {
+  padding-left: 3px;
+  padding-right: 5px;
+}
+
+.navbar {
+  color: white;
+  background-color: #468fff;
+}
+
+.dropdown-content,
+.navbar input,
+.navbar select {
+  color: white !important;
+  background-color: #3164b1 !important;
+  width: auto !important;
+}
+
+#content {
+  /* FIXME: magic numbers */
+  width: calc(100vw - 100px);
+  min-height: calc(100vh - 50px - 95px);
+  height: fit-content;
+  margin: 50px 50px 0px 50px;
+  font-family: monospace;
+  text-align: center;
+  position: relative;
+}
+
+.document {
+  text-align: left;
+}
+
+.document code {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+#hidden-input,
+#highlighted-input {
+  border: none;
+  outline: none;
+  width: inherit;
+  margin: 0;
+  padding: 0;
+  min-height: inherit;
+  text-align: left;
+  overflow: hidden;
+  white-space: pre;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#hidden-input {
+  background: transparent;
+  caret-color: white;
+  resize: none;
+}
+
+#highlighted-input {
+  z-index: -1;
+}
